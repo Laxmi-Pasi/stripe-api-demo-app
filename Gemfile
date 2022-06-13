@@ -72,3 +72,6 @@ group :test do
 end
 
 gem "stripe"
+gem 'jquery-rails'
+
+gem "pry", "~> 0.14.1"
