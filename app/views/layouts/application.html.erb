@@ -19,6 +19,13 @@
       <%= link_to "Log in", new_user_session_path %>
     <% end %>
     <hr>
+    <h1>Shopping Cart</h1>
+    <ul>
+    <% @cart.each do |item| %>
+      <li><%= item.name %> </li>
+    <% end %>
+    </ul>
+    <hr>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
