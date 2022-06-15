@@ -12,12 +12,19 @@ class CheckoutController < ApplicationController
         quantity: 1
       }],
       mode: 'payment',
-      success_url: 'https://stripe-api-demo-app.herokuapp.com/',
-      cancel_url: 'https://stripe-api-demo-app.herokuapp.com/',
+      success_url: success_url + "?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: cancel_url ,
     })
 
     respond_to do |format|
       format.js
     end
   end
+
+  def success
+  end
+
+  def cancel
+  end
+
 end
