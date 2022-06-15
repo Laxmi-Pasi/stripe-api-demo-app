@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script src="https://js.stripe.com/v3/"></script>
   </head>
-
   <body>
-    <%= link_to 'Products', products_path %>
+    <% if current_user %>
+      <%= link_to 'Products', products_path %> | 
+      <%= link_to current_user.email, edit_user_registration_path %> |
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path %>
+    <% end %>
     <hr>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

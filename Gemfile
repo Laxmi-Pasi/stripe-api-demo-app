@@ -73,5 +73,5 @@ end
 
 gem "stripe"
 gem 'jquery-rails'
-
+gem 'devise'
 gem "pry", "~> 0.14.1"
