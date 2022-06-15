@@ -24,12 +24,8 @@ class WebhooksController < ApplicationController
     # Handle the event
     case event.type
     when 'checkout.session.completed'
-      
-      binding.pry
-      
       session = event.data.object
       @product = Product.find_by(price: session.amount_total)
-      puts "----------------------------------------#{session.amount_total}-------------------"
       puts @product.increment!(:sales_count)
     end
 
