@@ -25,6 +25,10 @@
       <li><%= item.name %> </li>
     <% end %>
     </ul>
+    <% if @cart.present? %>
+      <%=@cart.collect { |item| item.to_builder.attributes!}  %>
+      <%= button_to "Buy now!", checkout_create_path, remote: true, data: { disable_with: "validating"} %>
+    <% end %>
     <hr>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
